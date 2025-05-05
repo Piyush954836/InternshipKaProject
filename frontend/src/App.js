@@ -1,13 +1,14 @@
 import React from 'react';
-import UploadForm from './UploadForm';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <h1>VBDA 2025 Invitation Generator</h1>
-      <UploadForm />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 

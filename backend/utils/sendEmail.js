@@ -1,15 +1,12 @@
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-async function sendEmail(to, content) {
+module.exports = async function sendEmail(to, subject, text) {
   const msg = {
     to,
-    from: 'your@email.com', // Replace with your verified sender
-    subject: 'Invitation to VBDA 2025 Conference',
-    html: `<p>${content}</p>`
+    from: 'your-email@domain.com',
+    subject,
+    text
   };
-
   await sgMail.send(msg);
-}
-
-module.exports = sendEmail;
+};
